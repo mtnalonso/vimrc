@@ -16,7 +16,7 @@ set wildmenu
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'kien/ctrlp.vim'                   " Fuzzy finder
+Plug 'ctrlpvim/ctrlp.vim'               " Fuzzy finder
 Plug 'scrooloose/nerdtree'              " Nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Nerdtree git control
 Plug 'airblade/vim-gitgutter'           " Git lint
