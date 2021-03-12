@@ -35,6 +35,8 @@ Plug 'scrooloose/nerdtree'              " Nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'      " Nerdtree git control
 Plug 'airblade/vim-gitgutter'           " Git lint
 Plug 'flazz/vim-colorschemes'           " Colorschemes
+Plug 'vim-python/python-syntax'         " Python syntax
+Plug 'sheerun/vim-polyglot'             " Syntax highlight
 call plug#end()
 
 " Git Gutter"
@@ -49,6 +51,12 @@ highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 highlight GitGutterChangeDelete ctermfg=4
+
+" Python syntax
+let g:python_highlight_all = 1
+let g:python_highlight_indent_errors = 0
+let g:python_highlight_space_errors = 0
+let g:python_highlight_func_calls = 0
 
 let g:NERDTreeIgnore=['\~$', '.pyc', '__pycache__']
 
