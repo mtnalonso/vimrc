@@ -66,6 +66,14 @@ let g:ctrlp_custom_ignore = {
     \ 'link': '',
     \}
 
+" Avoid indentation errors when pasting using tmux
+if &term =~ "screen"                                                   
+    let &t_BE = "\e[?2004h"                                              
+    let &t_BD = "\e[?2004l"                                              
+    exec "set t_PS=\e[200~"                                              
+    exec "set t_PE=\e[201~"                                              
+endif
+
 nnoremap Ñ :NERDTreeToggle<CR>
 nnoremap tt :syntax sync fromstart<CR>
 
