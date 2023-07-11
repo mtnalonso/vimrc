@@ -4,6 +4,8 @@ set ruler
 syntax on
 filetype plugin indent on
 
+set encoding=utf-8
+
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -16,7 +18,7 @@ set hlsearch
 set modeline
 
 " Search down into subfolder
-set path+=**    
+set path+=**
 set wildmenu
 
 
@@ -37,6 +39,8 @@ Plug 'airblade/vim-gitgutter'           " Git lint
 Plug 'flazz/vim-colorschemes'           " Colorschemes
 Plug 'vim-python/python-syntax'         " Python syntax
 Plug 'sheerun/vim-polyglot'             " Syntax highlight
+Plug 'luochen1990/rainbow'              " Rainbow brackets
+Plug 'bling/vim-airline'                " Vim airline
 call plug#end()
 
 " Git Gutter"
@@ -51,6 +55,9 @@ highlight GitGutterAdd ctermfg=2
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=1
 highlight GitGutterChangeDelete ctermfg=4
+
+" Rainbow brackets
+let g:rainbow_active = 1
 
 " Python syntax
 let g:python_highlight_all = 1
@@ -67,12 +74,15 @@ let g:ctrlp_custom_ignore = {
     \}
 
 " Avoid indentation errors when pasting using tmux
-if &term =~ "screen"                                                   
-    let &t_BE = "\e[?2004h"                                              
-    let &t_BD = "\e[?2004l"                                              
-    exec "set t_PS=\e[200~"                                              
-    exec "set t_PE=\e[201~"                                              
+if &term =~ "screen"
+    let &t_BE = "\e[?2004h"
+    let &t_BD = "\e[?2004l"
+    exec "set t_PS=\e[200~"
+    exec "set t_PE=\e[201~"
 endif
+
+" Remove trailing characters after saving
+autocmd BufWritePre * %s/\s\+$//e
 
 nnoremap Ñ :NERDTreeToggle<CR>
 nnoremap tt :syntax sync fromstart<CR>
